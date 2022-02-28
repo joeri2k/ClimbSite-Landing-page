@@ -6,7 +6,14 @@ const images = [{ url: juan }, { url: test }];
 
 function SliderImage() {
   return (
-    <div className="landing">
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "80vh",
+      }}
+    >
       <SimpleImageSlider
         width={500}
         height={350}

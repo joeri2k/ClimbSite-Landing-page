@@ -15,24 +15,33 @@ function Navbar() {
       />
       <CssBaseline />
       <AppBar
-        style={{ backgroundColor: "transparent" }}
-        position="static"
+        style={{
+          backgroundColor: "transparent",
+          marginLeft: "-40px",
+          zIndex: "2",
+        }}
+        position="sticky"
         color="default"
         elevation={0}
       >
         <Toolbar sx={{ flexWrap: "wrap" }}>
-          <Typography sx={{ flexGrow: 1 }} variant="h5" color="inherit" noWrap>
+          <Typography
+            sx={{ flexGrow: 1, my: 1, mx: 10 }}
+            variant="h5"
+            color="inherit"
+            noWrap
+          >
             <Link
               to="/"
               style={{
                 borderRadius: "50px",
-                backgroundColor: "#2F3F4A",
+                backgroundColor: "#122222",
                 textDecoration: "none",
                 color: "white",
                 fontFamily: "Nunito",
               }}
             >
-              <span style={{ padding: "10px" }}>
+              <span style={{ padding: "10px", fontWeight: "bold" }}>
                 <span style={{ color: "#1B8B6A" }}>Climb</span>Site
               </span>
             </Link>
@@ -43,7 +52,11 @@ function Navbar() {
               <Button
                 variant="outlined"
                 sx={{ my: 1, mx: 1.5 }}
-                style={{ color: "white", borderColor: "white" }}
+                style={{
+                  color: "#1B8B6A",
+                  backgroundColor: "#122222",
+                  borderColor: "#1B8B6A",
+                }}
               >
                 Signup
               </Button>
@@ -51,7 +64,11 @@ function Navbar() {
             <Link to="/login">
               <Button
                 variant="outlined"
-                style={{ color: "white", borderColor: "white" }}
+                style={{
+                  color: "#1B8B6A",
+                  backgroundColor: "#122222",
+                  borderColor: "#1B8B6A",
+                }}
                 sx={{ my: 1, mx: 1.5 }}
               >
                 Login
