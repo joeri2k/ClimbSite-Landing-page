@@ -36,12 +36,10 @@ function SliderImage() {
         loop={true}
         navMargin={0}
       />
-      <div
-        style={{
-          margin: "15px",
-        }}
-      >
-        test
+      <div>
+        <h2 style={{ color: "white ", textAlign: "center" }}>
+          ClimbSite will help you explore new crags
+        </h2>
       </div>
     </div>
   );

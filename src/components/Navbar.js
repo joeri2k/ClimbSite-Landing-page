@@ -34,14 +34,12 @@ function Navbar() {
             <Link
               to="/"
               style={{
-                borderRadius: "50px",
-                backgroundColor: "#122222",
                 textDecoration: "none",
                 color: "white",
                 fontFamily: "Nunito",
               }}
             >
-              <span style={{ padding: "10px", fontWeight: "bold" }}>
+              <span style={{ fontWeight: "bold", fontSize: "30px" }}>
                 <span style={{ color: "#1B8B6A" }}>Climb</span>Site
               </span>
             </Link>

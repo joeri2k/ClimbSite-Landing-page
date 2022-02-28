@@ -29,19 +29,17 @@ function Header() {
           flexDirection: "column",
         }}
       >
-        <h1 style={{ color: "white ", fontSize: "60px", textAlign: "center" }}>
+        <h1
+          style={{
+            color: "white ",
+            fontSize: "60px",
+            textAlign: "center",
+            fontFamily: "Nunito",
+            fontWeight: "bold",
+          }}
+        >
           Welcome to <br />
-          <span
-            style={{
-              borderRadius: "30px",
-              backgroundColor: "#122222",
-              padding: "10px",
-              fontWeight: "bold",
-              fontFamily: "Nunito",
-            }}
-          >
-            <span style={{ color: "#1B8B6A" }}>Climb</span>Site
-          </span>
+          <span style={{ color: "#1B8B6A" }}>Climb</span>Site
         </h1>
         <div
           style={{
