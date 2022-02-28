@@ -1,8 +1,19 @@
 import SimpleImageSlider from "react-simple-image-slider";
-import juan from "../images/juan.jpeg";
-import test from "../images/test.png";
+import s1 from "../images/screen1.png";
+import s2 from "../images/screen2.png";
+import s3 from "../images/screen3.png";
+import s4 from "../images/screen4.png";
+import s5 from "../images/screen5.png";
+import s6 from "../images/screen6.png";
 
-const images = [{ url: juan }, { url: test }];
+const images = [
+  { url: s1 },
+  { url: s2 },
+  { url: s3 },
+  { url: s4 },
+  { url: s5 },
+  { url: s6 },
+];
 
 function SliderImage() {
   return (
@@ -11,16 +22,27 @@ function SliderImage() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "80vh",
+        height: "100vh",
+        flexDirection: "column",
       }}
     >
       <SimpleImageSlider
-        width={500}
-        height={350}
+        width={200}
+        height={433}
         images={images}
-        showBullets={true}
         showNavs={true}
+        navSize={20}
+        navStyle={2}
+        loop={true}
+        navMargin={0}
       />
+      <div
+        style={{
+          margin: "15px",
+        }}
+      >
+        test
+      </div>
     </div>
   );
 }
