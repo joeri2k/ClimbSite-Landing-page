@@ -10,7 +10,15 @@ const Landing = () => {
       <CssBaseline />
       <Header />
       <SliderImage />
-      <InfoBlock />
+      <InfoBlock
+        text="ClimbSite is a logging app that allows users to log and rate climbs,
+          leave comments. The app is easy to navigate, offers guidebooks to the
+          spot of your choosing. You can add climbing areas to your log page by
+          favoriting them. Through its logbook features, climbers can track
+          their own climbing endeavors, follow friends and log an event so other
+          climbers can join."
+        title="About Us"
+      />
     </div>
   );
 };

@@ -13,7 +13,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export default function Login() {
+export default function Login({ text, title }) {
   return (
     <div
       style={{
@@ -24,12 +24,11 @@ export default function Login() {
         flexDirection: "column",
       }}
     >
-      <div>
-        <h1 style={{ color: "white ", textAlign: "center" }}>About Us</h1>
-      </div>
+      <h1 style={{ color: "white ", textAlign: "center" }}>{title}</h1>
+
       <Container
         component="main"
-        maxWidth="xs"
+        maxWidth="sm"
         style={{
           backgroundColor: "#2F3F4A",
           borderRadius: "15px",
@@ -38,14 +37,20 @@ export default function Login() {
       >
         <CssBaseline />
         <Box
-          style={{ padding: "20px" }}
+          style={{
+            padding: "20px",
+            fontSize: "18px",
+            lineHeight: "30px",
+            textAlign: "justify",
+          }}
           sx={{
-            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
-        ></Box>
+        >
+          {text}
+        </Box>
       </Container>
     </div>
   );
