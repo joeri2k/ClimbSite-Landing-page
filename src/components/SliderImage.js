@@ -26,6 +26,12 @@ function SliderImage() {
         flexDirection: "column",
       }}
     >
+      <div>
+        <h1 style={{ color: "white ", textAlign: "center" }}>
+          Explore new crags, and meet new climbers.
+        </h1>
+      </div>
+
       <SimpleImageSlider
         width={200}
         height={433}
@@ -36,11 +42,6 @@ function SliderImage() {
         loop={true}
         navMargin={0}
       />
-      <div>
-        <h2 style={{ color: "white ", textAlign: "center" }}>
-          ClimbSite will help you explore new crags
-        </h2>
-      </div>
     </div>
   );
 }
