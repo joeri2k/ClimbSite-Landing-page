@@ -22,8 +22,19 @@ function Navbar() {
       >
         <Toolbar sx={{ flexWrap: "wrap" }}>
           <Typography sx={{ flexGrow: 1 }} variant="h5" color="inherit" noWrap>
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              ClimbSite
+            <Link
+              to="/"
+              style={{
+                borderRadius: "50px",
+                backgroundColor: "#2F3F4A",
+                textDecoration: "none",
+                color: "white",
+                fontFamily: "Nunito",
+              }}
+            >
+              <span style={{ padding: "10px" }}>
+                <span style={{ color: "#1B8B6A" }}>Climb</span>Site
+              </span>
             </Link>
           </Typography>
 
