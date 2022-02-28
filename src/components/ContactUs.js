@@ -13,34 +13,18 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export default function Login() {
-  //const [loggedIn, setLoggedIn] = useState(false);
-  const navigate = useNavigate();
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const user_login_info = {
-      email: data.get("email"),
-      password: data.get("password"),
-    };
-    console.log(user_login_info);
-    const url = "http://127.0.0.1:8000/api/auth/login";
-    try {
-      const response = await axios.post(url, user_login_info);
-      const data_received = await response.data;
-      console.log(data_received);
-      localStorage.setItem("token", data_received.access_token);
-      localStorage.setItem("name", data_received.user.name);
-      localStorage.setItem("email", data_received.user.email);
-      //setLoggedIn(true);
-      navigate("/dashboard");
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
+export default function ContactUs() {
   return (
-    <div style={{ height: "100vh" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        flexDirection: "column",
+      }}
+    >
+      <h1 style={{ color: "white ", textAlign: "center" }}>Contact Us</h1>
       <Container
         component="main"
         maxWidth="xs"
@@ -54,21 +38,14 @@ export default function Login() {
         <Box
           style={{ padding: "20px" }}
           sx={{
-            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "#1B8B6A" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Login
-          </Typography>
           <Box
             component="form"
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -77,7 +54,6 @@ export default function Login() {
                 style: { color: "#fff" },
               }}
               margin="normal"
-              required
               fullWidth
               id="email"
               label="Email Address"
@@ -89,13 +65,12 @@ export default function Login() {
                 style: { color: "#fff" },
               }}
               margin="normal"
-              required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              name="message"
+              label="Message"
+              type="text"
+              id="message"
+              autoComplete="message"
             />
             <Button
               style={{ backgroundColor: "#1B8B6A" }}
@@ -104,20 +79,8 @@ export default function Login() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              LogIn
+              Send
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>

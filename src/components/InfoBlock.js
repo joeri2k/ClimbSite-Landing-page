@@ -13,7 +13,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export default function Login({ text, title }) {
+export default function InfoClock({ text, title }) {
   return (
     <div
       style={{

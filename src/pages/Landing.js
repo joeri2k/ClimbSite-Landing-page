@@ -3,6 +3,7 @@ import React from "react";
 import { CssBaseline } from "@mui/material";
 import Header from "../components/Header";
 import InfoBlock from "../components/InfoBlock";
+import ContactUs from "../components/ContactUs";
 
 const Landing = () => {
   return (
@@ -27,6 +28,7 @@ const Landing = () => {
           climbers can join."
         title="Services"
       />
+      <ContactUs />
     </div>
   );
 };
