@@ -12,6 +12,7 @@ import Container from "@mui/material/Container";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 export default function Login() {
   //const [loggedIn, setLoggedIn] = useState(false);
@@ -41,6 +42,7 @@ export default function Login() {
 
   return (
     <div style={{ height: "100vh" }}>
+      <Navbar />
       <Container
         component="main"
         maxWidth="xs"

@@ -29,7 +29,6 @@ function App() {
       <div className={classes.opacity}>
         <CssBaseline />
         <Router>
-          <Navbar />
           <Routes>
             <Route exact path="/" element={<Landing />} />
             <Route exact path="/dashboard" element={<Dashboard />} />

@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ export default function SignUp() {
 
   return (
     <div style={{ height: "100vh" }}>
+      <Navbar />
       <Container
         component="main"
         maxWidth="xs"
