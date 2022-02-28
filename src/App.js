@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
   },
   opacity: {
-    backgroundColor: "rgb(0,0,0,0.5)",
+    backgroundColor: "rgb(0,0,0,0.6)",
   },
 }));
 
