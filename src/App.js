@@ -17,23 +17,27 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
   },
+  opacity: {
+    backgroundColor: "rgb(0,0,0,0.5)",
+  },
 }));
 
 function App() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <CssBaseline />
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Landing />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </Router>
-      {/* <SliderImage /> */}
+      <div className={classes.opacity}>
+        <CssBaseline />
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Landing />} />
+            <Route exact path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
 }
