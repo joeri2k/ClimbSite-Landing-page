@@ -34,19 +34,18 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "#122222", height: "100vh" }}>
+    <div style={{ fontFamily: "Roboto", backgroundColor: "#122222" }}>
       <NavbarLoggedIn style={{ backgroundColor: "" }} />
       <div
         style={{
-          height: "80vh",
+          height: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          fontSize: "50px",
           color: "white",
         }}
       >
-        <h1 style={{ color: "white ", textAlign: "center", fontSize: "50px" }}>
+        <h1 style={{ color: "white ", textAlign: "center", fontSize: "40px" }}>
           My Profile
         </h1>
 
@@ -65,49 +64,48 @@ const Dashboard = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
+              //alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "#1B8B6A" }}></Avatar>
-            <Typography component="h1" variant="h5">
+            <Avatar
+              style={{ alignSelf: "center" }}
+              sx={{ m: 1, bgcolor: "#1B8B6A", width: 75, height: 75 }}
+            ></Avatar>
+            <Typography
+              style={{
+                fontFamily: "Roboto",
+                fontWeight: "bold",
+                alignSelf: "center",
+              }}
+              variant="h4"
+            >
               {name}
             </Typography>
             <Box
               component="form"
               //onSubmit={handleSubmit}
               noValidate
-              sx={{ mt: 1 }}
+              sx={{ mt: 3 }}
             >
-              <TextField
-                InputLabelProps={{
-                  style: { color: "#fff" },
+              <Typography
+                style={{
+                  fontFamily: "Roboto",
+                  fontSize: "18px",
                 }}
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-              <TextField
-                InputLabelProps={{
-                  style: { color: "#fff" },
-                }}
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
+                align="left"
+                component="p"
+              >
+                <span style={{ fontWeight: "bold" }}>Email : </span>
+                {email} <br />
+                <span style={{ fontWeight: "bold" }}>Info : </span>
+                {email}
+              </Typography>
+
               <Button
                 style={{ backgroundColor: "#1B8B6A" }}
                 type="submit"
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 2, mb: 2 }}
               >
                 Edit
               </Button>
