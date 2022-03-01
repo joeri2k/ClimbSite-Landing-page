@@ -7,12 +7,27 @@ import Typography from "@mui/material/Typography";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function NavbarLoggedIn() {
   const navigate = useNavigate();
-  function handleSubmit() {
-    localStorage.clear();
-    navigate("/");
+  async function handleSubmit() {
+    const url = "http://127.0.0.1:8000/api/auth/logout";
+    const token = localStorage.getItem("token");
+    console.log(token);
+    try {
+      const response = await axios.post(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data_received = await response.data;
+      console.log(data_received);
+      if (data_received.message) {
+        localStorage.clear();
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <React.Fragment>
