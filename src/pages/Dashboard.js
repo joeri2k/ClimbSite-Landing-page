@@ -18,7 +18,7 @@ const Dashboard = () => {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data_received = await response.data;
-        console.log(data_received);
+
         setName(data_received.name);
         setEmail(data_received.email);
       } catch (error) {
@@ -42,7 +42,9 @@ const Dashboard = () => {
           color: "white",
         }}
       >
-        <h1 style={{ color: "white ", textAlign: "center" }}>{title}</h1>
+        <h1 style={{ color: "white ", textAlign: "center", fontSize: "50px" }}>
+          {name}
+        </h1>
 
         <Container
           component="main"
@@ -67,7 +69,7 @@ const Dashboard = () => {
               alignItems: "center",
             }}
           >
-            {text}
+            {email}
           </Box>
         </Container>
       </div>

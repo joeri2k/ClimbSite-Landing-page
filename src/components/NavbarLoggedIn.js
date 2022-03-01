@@ -11,12 +11,11 @@ import axios from "axios";
 
 function NavbarLoggedIn() {
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   async function handleSubmit() {
     const url = "http://127.0.0.1:8000/api/auth/logout";
-    const token = localStorage.getItem("token");
-    console.log(token);
     try {
-      const response = await axios.post(url, {
+      const response = await axios.post(url, [], {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data_received = await response.data;
