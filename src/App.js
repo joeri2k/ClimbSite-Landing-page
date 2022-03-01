@@ -8,6 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import { makeStyles } from "@material-ui/core/styles";
 import bg from "./images/bg.jpg";
 import { CssBaseline } from "@mui/material";
+import ProtectedRoutes from "./components/ProtectedRouts";
+import ProtectedProfile from "./components/ProtectedProfile";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,10 +32,14 @@ function App() {
         <CssBaseline />
         <Router>
           <Routes>
-            <Route exact path="/" element={<Landing />} />
-            <Route exact path="/dashboard" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route exact path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Route>
+            <Route element={<ProtectedProfile />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
           </Routes>
         </Router>
       </div>

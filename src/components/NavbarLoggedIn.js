@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function NavbarLoggedIn() {
   return (
     <React.Fragment>
       <GlobalStyles
@@ -15,24 +15,50 @@ function Navbar() {
       />
       <CssBaseline />
       <AppBar
-        position="static"
+        style={{
+          backgroundColor: "transparent",
+          marginLeft: "-40px",
+          zIndex: "2",
+        }}
+        position="sticky"
         color="default"
         elevation={0}
-        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
-        <Toolbar
-          sx={{ flexWrap: "wrap" }}
-          style={{ backgroundColor: "#1B8B6A" }}
-        >
-          <Typography sx={{ flexGrow: 1 }} variant="h5" color="inherit" noWrap>
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              ClimbSite
-            </Link>
+        <Toolbar sx={{ flexWrap: "wrap" }}>
+          <Typography
+            sx={{ flexGrow: 1, my: 1, mx: 10 }}
+            variant="h5"
+            color="inherit"
+            noWrap
+            style={{
+              color: "white",
+              fontFamily: "Nunito",
+            }}
+          >
+            <span style={{ fontWeight: "bold", fontSize: "30px" }}>
+              <span style={{ color: "#1B8B6A" }}>Climb</span>Site
+            </span>
           </Typography>
+
+          <nav>
+            <Link to="/">
+              <Button
+                variant="outlined"
+                sx={{ my: 1, mx: 1.5 }}
+                style={{
+                  color: "#1B8B6A",
+                  backgroundColor: "#122222",
+                  borderColor: "#1B8B6A",
+                }}
+              >
+                Logout
+              </Button>
+            </Link>
+          </nav>
         </Toolbar>
       </AppBar>
     </React.Fragment>
   );
 }
 
-export default Navbar;
+export default NavbarLoggedIn;
