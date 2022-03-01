@@ -32,11 +32,11 @@ function App() {
         <CssBaseline />
         <Router>
           <Routes>
-            {/* <Route element={<ProtectedRoutes />}> */}
-            <Route exact path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            {/* </Route> */}
+            <Route element={<ProtectedRoutes />}>
+              <Route exact path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Route>
             <Route element={<ProtectedProfile />}>
               <Route path="/dashboard" element={<Dashboard />} />
             </Route>

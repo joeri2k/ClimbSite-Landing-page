@@ -6,8 +6,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NavbarLoggedIn() {
+  const navigate = useNavigate();
+  function handleSubmit() {
+    localStorage.clear();
+    navigate("/");
+  }
   return (
     <React.Fragment>
       <GlobalStyles
@@ -41,19 +47,18 @@ function NavbarLoggedIn() {
           </Typography>
 
           <nav>
-            <Link to="/">
-              <Button
-                variant="outlined"
-                sx={{ my: 1, mx: 1.5 }}
-                style={{
-                  color: "#1B8B6A",
-                  backgroundColor: "#122222",
-                  borderColor: "#1B8B6A",
-                }}
-              >
-                Logout
-              </Button>
-            </Link>
+            <Button
+              variant="outlined"
+              sx={{ my: 1, mx: 1.5 }}
+              onClick={handleSubmit}
+              style={{
+                color: "#1B8B6A",
+                backgroundColor: "#122222",
+                borderColor: "#1B8B6A",
+              }}
+            >
+              Logout
+            </Button>
           </nav>
         </Toolbar>
       </AppBar>

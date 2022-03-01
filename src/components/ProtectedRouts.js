@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
 
 const useAuth = () => {
   const token = localStorage.getItem("token");
@@ -11,7 +12,7 @@ const useAuth = () => {
 
 const ProtectedRoutes = () => {
   const isAuth = useAuth();
-  return isAuth ? <Login /> : <Outlet />;
+  return isAuth ? <Dashboard /> : <Outlet />;
 };
 
 export default ProtectedRoutes;
