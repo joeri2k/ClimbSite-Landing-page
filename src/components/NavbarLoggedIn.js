@@ -36,9 +36,8 @@ function NavbarLoggedIn() {
       <CssBaseline />
       <AppBar
         style={{
-          backgroundColor: "transparent",
-          marginLeft: "-40px",
           zIndex: "2",
+          backgroundColor: "#2F3F4A",
         }}
         position="sticky"
         color="default"

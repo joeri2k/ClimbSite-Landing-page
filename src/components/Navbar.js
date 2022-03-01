@@ -17,7 +17,6 @@ function Navbar() {
       <AppBar
         style={{
           backgroundColor: "transparent",
-          marginLeft: "-40px",
           zIndex: "2",
         }}
         position="sticky"
