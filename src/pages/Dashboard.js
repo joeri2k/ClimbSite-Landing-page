@@ -7,6 +7,9 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const Dashboard = () => {
   const [name, setName] = useState("");
@@ -31,11 +34,11 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "#122222" }}>
+    <div style={{ backgroundColor: "#122222", height: "100vh" }}>
       <NavbarLoggedIn style={{ backgroundColor: "" }} />
       <div
         style={{
-          height: "100vh",
+          height: "80vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -44,7 +47,7 @@ const Dashboard = () => {
         }}
       >
         <h1 style={{ color: "white ", textAlign: "center", fontSize: "50px" }}>
-          {name}
+          My Profile
         </h1>
 
         <Container
@@ -60,7 +63,6 @@ const Dashboard = () => {
           <Box
             style={{ padding: "20px" }}
             sx={{
-              marginTop: 8,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -68,11 +70,11 @@ const Dashboard = () => {
           >
             <Avatar sx={{ m: 1, bgcolor: "#1B8B6A" }}></Avatar>
             <Typography component="h1" variant="h5">
-              Login
+              {name}
             </Typography>
             <Box
               component="form"
-              onSubmit={handleSubmit}
+              //onSubmit={handleSubmit}
               noValidate
               sx={{ mt: 1 }}
             >
@@ -104,23 +106,11 @@ const Dashboard = () => {
               <Button
                 style={{ backgroundColor: "#1B8B6A" }}
                 type="submit"
-                fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                LogIn
+                Edit
               </Button>
-
-              <Typography variant="body2">
-                <Link
-                  style={{
-                    color: "#000075",
-                  }}
-                  to="/signup"
-                >
-                  Don't have an account? Sign Up
-                </Link>
-              </Typography>
             </Box>
           </Box>
         </Container>
