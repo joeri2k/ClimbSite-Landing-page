@@ -3,7 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -13,6 +12,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   //const [loggedIn, setLoggedIn] = useState(false);
@@ -108,18 +108,17 @@ export default function Login() {
             >
               LogIn
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
+
+            <Typography variant="body2">
+              <Link
+                style={{
+                  color: "#000075",
+                }}
+                to="/signup"
+              >
+                Don't have an account? Sign Up
+              </Link>
+            </Typography>
           </Box>
         </Box>
       </Container>

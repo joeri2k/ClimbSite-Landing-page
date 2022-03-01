@@ -19,6 +19,8 @@ const Dashboard = () => {
         <span>{localStorage.getItem("name")}</span>
         <br />
         <span>{localStorage.getItem("email")}</span>
+        <br />
+        <span>{localStorage.getItem("token")}</span>
       </div>
     </div>
   );
