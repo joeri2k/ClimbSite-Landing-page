@@ -7,8 +7,13 @@ import Typography from "@mui/material/Typography";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@material-ui/core/styles";
+import MenuListLogged from "./BurgerLogged";
 
 function NavbarLoggedIn() {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("xs"));
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   async function handleSubmit() {
@@ -57,21 +62,24 @@ function NavbarLoggedIn() {
               <span style={{ color: "#1B8B6A" }}>Climb</span>Site
             </span>
           </Typography>
-
-          <nav>
-            <Button
-              variant="outlined"
-              sx={{ my: 1, mx: 1.5 }}
-              onClick={handleSubmit}
-              style={{
-                color: "#1B8B6A",
-                backgroundColor: "#122222",
-                borderColor: "#1B8B6A",
-              }}
-            >
-              Logout
-            </Button>
-          </nav>
+          {isMatch ? (
+            <MenuListLogged />
+          ) : (
+            <nav>
+              <Button
+                variant="outlined"
+                sx={{ my: 1, mx: 1.5 }}
+                onClick={handleSubmit}
+                style={{
+                  color: "#1B8B6A",
+                  backgroundColor: "#122222",
+                  borderColor: "#1B8B6A",
+                }}
+              >
+                Logout
+              </Button>
+            </nav>
+          )}
         </Toolbar>
       </AppBar>
     </React.Fragment>

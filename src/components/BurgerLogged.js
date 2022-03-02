@@ -8,9 +8,28 @@ import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import { IconButton } from "@material-ui/core";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function MenuListComposition() {
+export default function MenuListLogged() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  async function handleSubmit() {
+    const url = "http://127.0.0.1:8000/api/auth/logout";
+    try {
+      const response = await axios.post(url, [], {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data_received = await response.data;
+      console.log(data_received);
+      if (data_received.message) {
+        localStorage.clear();
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -47,13 +66,6 @@ export default function MenuListComposition() {
 
   return (
     <Stack direction="row" spacing={2}>
-      {/* <Paper>
-        <MenuList>
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>My account</MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </Paper> */}
       <div>
         <IconButton onClick={handleToggle}>
           <MenuIcon
@@ -100,30 +112,13 @@ export default function MenuListComposition() {
                     <MenuItem
                       style={{
                         backgroundColor: "#122222",
+                        color: "#1B8B6A",
                       }}
+                      variant="outlined"
+                      sx={{ my: 1, mx: 1.5 }}
+                      onClick={handleSubmit}
                     >
-                      <Link
-                        style={{ color: "#1B8B6A", textDecoration: "none" }}
-                        to="/signup"
-                        variant="outlined"
-                        sx={{ my: 1, mx: 1.5 }}
-                      >
-                        Signup
-                      </Link>
-                    </MenuItem>
-                    <MenuItem
-                      style={{
-                        backgroundColor: "#122222",
-                      }}
-                    >
-                      <Link
-                        style={{ color: "#1B8B6A", textDecoration: "none" }}
-                        to="/login"
-                        variant="outlined"
-                        sx={{ my: 1, mx: 1.5 }}
-                      >
-                        Login
-                      </Link>
+                      Logout
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
