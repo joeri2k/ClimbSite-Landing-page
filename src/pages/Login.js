@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,11 +14,15 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 export default function Login() {
-  //const [loggedIn, setLoggedIn] = useState(false);
+  const [error, setError] = useState(null);
+
   const navigate = useNavigate();
   async function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    if (!(data.get("email") && data.get("password"))) {
+      setError("empty");
+    }
     const user_login_info = {
       email: data.get("email"),
       password: data.get("password"),
@@ -31,10 +36,10 @@ export default function Login() {
       localStorage.setItem("token", data_received.access_token);
       localStorage.setItem("name", data_received.user.name);
       localStorage.setItem("email", data_received.user.email);
-      //setLoggedIn(true);
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
+      setError("wrong");
     }
   }
 
@@ -118,6 +123,30 @@ export default function Login() {
               </Link>
             </Typography>
           </Box>
+          {error == "empty" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              One of the required field is empty
+            </div>
+          ) : (
+            <></>
+          )}
+          {error == "wrong" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              Your email or password is incorrect
+            </div>
+          ) : (
+            <></>
+          )}
         </Box>
       </Container>
     </div>
