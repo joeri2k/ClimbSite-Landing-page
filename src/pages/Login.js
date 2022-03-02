@@ -22,24 +22,25 @@ export default function Login() {
     const data = new FormData(event.currentTarget);
     if (!(data.get("email") && data.get("password"))) {
       setError("empty");
-    }
-    const user_login_info = {
-      email: data.get("email"),
-      password: data.get("password"),
-    };
-    console.log(user_login_info);
-    const url = "http://127.0.0.1:8000/api/auth/login";
-    try {
-      const response = await axios.post(url, user_login_info);
-      const data_received = await response.data;
-      console.log(data_received);
-      localStorage.setItem("token", data_received.access_token);
-      localStorage.setItem("name", data_received.user.name);
-      localStorage.setItem("email", data_received.user.email);
-      navigate("/dashboard");
-    } catch (error) {
-      console.log(error);
-      setError("wrong");
+    } else {
+      const user_login_info = {
+        email: data.get("email"),
+        password: data.get("password"),
+      };
+      console.log(user_login_info);
+      const url = "http://127.0.0.1:8000/api/auth/login";
+      try {
+        const response = await axios.post(url, user_login_info);
+        const data_received = await response.data;
+        console.log(data_received);
+        localStorage.setItem("token", data_received.access_token);
+        localStorage.setItem("name", data_received.user.name);
+        localStorage.setItem("email", data_received.user.email);
+        navigate("/dashboard");
+      } catch (error) {
+        console.log(error);
+        setError("wrong");
+      }
     }
   }
 
