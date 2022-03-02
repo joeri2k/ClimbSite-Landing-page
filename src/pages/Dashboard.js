@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Popup from "../components/Popup";
 import EditName from "../components/EditName";
 import EditEmail from "../components/EditEmail";
+import ChangePass from "../components/ChangePass";
 
 const Dashboard = () => {
   const [isOpen1, setIsOpen1] = useState(false);
@@ -148,7 +149,7 @@ const Dashboard = () => {
       </div>
       {isOpen1 && <Popup content={<EditEmail handleClose={togglePopup1} />} />}
       {isOpen2 && <Popup content={<EditName handleClose={togglePopup2} />} />}
-      {/* {isOpen3 && <Popup content={<Editinfo handleClose={togglePopup3} />} />} */}
+      {isOpen3 && <Popup content={<ChangePass handleClose={togglePopup3} />} />}
     </div>
   );
 };
