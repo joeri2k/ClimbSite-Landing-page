@@ -36,7 +36,7 @@ const Dashboard = () => {
   const url = "http://127.0.0.1:8000/api/auth/user-profile";
   const token = localStorage.getItem("token");
   useEffect(() => {
-    async function handleSubmit() {
+    async function getInfo() {
       try {
         const response = await axios.get(url, {
           headers: { Authorization: `Bearer ${token}` },
@@ -49,8 +49,8 @@ const Dashboard = () => {
         console.log(error);
       }
     }
-    handleSubmit();
-  }, []);
+    getInfo();
+  });
 
   return (
     <div style={{ fontFamily: "Roboto", backgroundColor: "#122222" }}>
