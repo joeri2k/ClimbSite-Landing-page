@@ -8,6 +8,7 @@ import GlobalStyles from "@mui/material/GlobalStyles";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@material-ui/core/styles";
+import MenuListComposition from "./Burgermenu";
 
 function Navbar() {
   const theme = useTheme();
@@ -49,7 +50,7 @@ function Navbar() {
             </Link>
           </Typography>
           {isMatch ? (
-            <div></div>
+            <MenuListComposition />
           ) : (
             <nav>
               <Link to="/signup">
