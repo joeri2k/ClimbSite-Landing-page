@@ -143,7 +143,7 @@ const Dashboard = () => {
           </Box>
         </Container>
       </div>
-      {isOpen && <Popup content={<Editinfo />} handleClose={togglePopup} />}
+      {isOpen && <Popup content={<Editinfo handleClose={togglePopup} />} />}
     </div>
   );
 };

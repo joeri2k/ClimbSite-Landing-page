@@ -12,10 +12,9 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
-export default function Editinfo() {
+export default function Editinfo({ handleClose }) {
   return (
-    <div style={{ height: "100vh" }}>
-      <Navbar />
+    <div>
       <Container
         component="main"
         maxWidth="xs"
@@ -23,24 +22,24 @@ export default function Editinfo() {
           backgroundColor: "#2F3F4A",
           borderRadius: "15px",
           color: "white",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <CssBaseline />
+        <span className="close-icon" onClick={handleClose}>
+          x
+        </span>
+
         <Box
-          style={{ padding: "20px" }}
+          style={{ padding: "15px", marginTop: "20px" }}
           sx={{
-            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "#1B8B6A" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Login
-          </Typography>
           <Box
             component="form"
             // onSubmit={handleSubmit}
@@ -59,19 +58,6 @@ export default function Editinfo() {
               name="email"
               autoComplete="email"
             />
-            <TextField
-              InputLabelProps={{
-                style: { color: "#fff" },
-              }}
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
             <Button
               style={{ backgroundColor: "#1B8B6A" }}
               type="submit"
@@ -79,19 +65,8 @@ export default function Editinfo() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              LogIn
+              Edit
             </Button>
-
-            <Typography variant="body2">
-              <Link
-                style={{
-                  color: "#000075",
-                }}
-                to="/signup"
-              >
-                Don't have an account? Sign Up
-              </Link>
-            </Typography>
           </Box>
         </Box>
       </Container>
