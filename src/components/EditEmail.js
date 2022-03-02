@@ -23,6 +23,7 @@ export default function EditEmail({ handleClose }) {
       });
       const data_received = await response.data;
       console.log(data_received);
+      event.target.reset();
     } catch (error) {
       console.log(error);
     }
