@@ -3,10 +3,30 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
+import axios from "axios";
 
 import Container from "@mui/material/Container";
 
 export default function EditEmail({ handleClose }) {
+  const token = localStorage.getItem("token");
+  async function handleEdit(event) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const changed_email = {
+      email: data.get("email"),
+    };
+
+    const url = "http://127.0.0.1:8000/api/auth/edit-profile";
+    try {
+      const response = await axios.post(url, changed_email, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data_received = await response.data;
+      console.log(data_received);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div>
       <Container
@@ -34,12 +54,7 @@ export default function EditEmail({ handleClose }) {
             alignItems: "center",
           }}
         >
-          <Box
-            component="form"
-            // onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" onSubmit={handleEdit} noValidate sx={{ mt: 1 }}>
             <TextField
               InputLabelProps={{
                 style: { color: "#fff" },
