@@ -7,6 +7,24 @@ import Container from "@mui/material/Container";
 import axios from "axios";
 
 export default function ContactUs() {
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const message_data = {
+      email: data.get("email"),
+      subject: data.get("subject"),
+      message: data.get("message"),
+    };
+
+    const url = "http://127.0.0.1:8000/api/message";
+    try {
+      const response = await axios.post(url, message_data);
+      const data_received = await response.data;
+      console.log(data_received);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div
       style={{
@@ -52,6 +70,17 @@ export default function ContactUs() {
               label="Email Address"
               name="email"
               autoComplete="email"
+            />
+            <TextField
+              InputLabelProps={{
+                style: { color: "#fff" },
+              }}
+              margin="normal"
+              fullWidth
+              id="subject"
+              label="Subject"
+              name="subject"
+              autoComplete="subject"
             />
             <TextField
               InputLabelProps={{
