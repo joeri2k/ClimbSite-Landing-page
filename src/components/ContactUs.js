@@ -21,6 +21,7 @@ export default function ContactUs() {
       const response = await axios.post(url, message_data);
       const data_received = await response.data;
       console.log(data_received);
+      event.target.reset();
     } catch (error) {
       console.log(error);
     }
