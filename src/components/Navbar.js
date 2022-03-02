@@ -30,12 +30,7 @@ function Navbar() {
         elevation={0}
       >
         <Toolbar sx={{ flexWrap: "wrap" }}>
-          <Typography
-            sx={{ flexGrow: 1, my: 1, mx: 10 }}
-            variant="h5"
-            color="inherit"
-            noWrap
-          >
+          <Typography sx={{ flexGrow: 1 }} variant="h5" color="inherit" noWrap>
             <Link
               to="/"
               style={{

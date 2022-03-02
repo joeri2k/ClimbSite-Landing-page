@@ -9,6 +9,7 @@ import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import { IconButton } from "@material-ui/core";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
 export default function MenuListComposition() {
   const [open, setOpen] = React.useState(false);
@@ -55,20 +56,16 @@ export default function MenuListComposition() {
         </MenuList>
       </Paper> */}
       <div>
-        <IconButton
-          style={{
-            marginTop: "100px",
-          }}
-        >
+        <IconButton onClick={handleToggle}>
           <MenuIcon
             ref={anchorRef}
             id="composition-button"
             aria-controls={open ? "composition-menu" : undefined}
             aria-expanded={open ? "true" : undefined}
             aria-haspopup="true"
-            onClick={handleToggle}
             style={{
               color: "#1B8B6A",
+              fontSize: "40px",
             }}
           />
         </IconButton>
@@ -88,7 +85,12 @@ export default function MenuListComposition() {
                   placement === "bottom-start" ? "left top" : "left bottom",
               }}
             >
-              <Paper>
+              <Paper
+                style={{
+                  backgroundColor: "#122222",
+                  borderRadius: "10px",
+                }}
+              >
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
                     autoFocusItem={open}
@@ -96,9 +98,34 @@ export default function MenuListComposition() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem
+                      style={{
+                        backgroundColor: "#122222",
+                      }}
+                    >
+                      <Link
+                        style={{ color: "#1B8B6A", textDecoration: "none" }}
+                        to="/signup"
+                        variant="outlined"
+                        sx={{ my: 1, mx: 1.5 }}
+                      >
+                        Signup
+                      </Link>
+                    </MenuItem>
+                    <MenuItem
+                      style={{
+                        backgroundColor: "#122222",
+                      }}
+                    >
+                      <Link
+                        style={{ color: "#1B8B6A", textDecoration: "none" }}
+                        to="/login"
+                        variant="outlined"
+                        sx={{ my: 1, mx: 1.5 }}
+                      >
+                        Login
+                      </Link>
+                    </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
