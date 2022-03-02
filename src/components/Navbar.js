@@ -6,8 +6,13 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@material-ui/core/styles";
 
 function Navbar() {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("xs"));
+
   return (
     <React.Fragment>
       <GlobalStyles
@@ -43,35 +48,38 @@ function Navbar() {
               </span>
             </Link>
           </Typography>
-
-          <nav>
-            <Link to="/signup">
-              <Button
-                variant="outlined"
-                sx={{ my: 1, mx: 1.5 }}
-                style={{
-                  color: "#1B8B6A",
-                  backgroundColor: "#122222",
-                  borderColor: "#1B8B6A",
-                }}
-              >
-                Signup
-              </Button>
-            </Link>
-            <Link to="/login">
-              <Button
-                variant="outlined"
-                style={{
-                  color: "#1B8B6A",
-                  backgroundColor: "#122222",
-                  borderColor: "#1B8B6A",
-                }}
-                sx={{ my: 1, mx: 1.5 }}
-              >
-                Login
-              </Button>
-            </Link>
-          </nav>
+          {isMatch ? (
+            <div></div>
+          ) : (
+            <nav>
+              <Link to="/signup">
+                <Button
+                  variant="outlined"
+                  sx={{ my: 1, mx: 1.5 }}
+                  style={{
+                    color: "#1B8B6A",
+                    backgroundColor: "#122222",
+                    borderColor: "#1B8B6A",
+                  }}
+                >
+                  Signup
+                </Button>
+              </Link>
+              <Link to="/login">
+                <Button
+                  variant="outlined"
+                  style={{
+                    color: "#1B8B6A",
+                    backgroundColor: "#122222",
+                    borderColor: "#1B8B6A",
+                  }}
+                  sx={{ my: 1, mx: 1.5 }}
+                >
+                  Login
+                </Button>
+              </Link>
+            </nav>
+          )}
         </Toolbar>
       </AppBar>
     </React.Fragment>
