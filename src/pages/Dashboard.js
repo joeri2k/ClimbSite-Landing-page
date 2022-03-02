@@ -7,17 +7,28 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Popup from "../components/Popup";
-import Editinfo from "../components/Editinfo";
+import EditName from "../components/EditName";
+import EditEmail from "../components/EditEmail";
 
 const Dashboard = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen1, setIsOpen1] = useState(false);
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
+  const togglePopup1 = () => {
+    setIsOpen1(!isOpen1);
+  };
+
+  const [isOpen2, setIsOpen2] = useState(false);
+
+  const togglePopup2 = () => {
+    setIsOpen2(!isOpen2);
+  };
+
+  const [isOpen3, setIsOpen3] = useState(false);
+
+  const togglePopup3 = () => {
+    setIsOpen3(!isOpen3);
   };
 
   const [name, setName] = useState("");
@@ -65,7 +76,7 @@ const Dashboard = () => {
 
   return (
     <div style={{ fontFamily: "Roboto", backgroundColor: "#122222" }}>
-      <NavbarLoggedIn style={{ backgroundColor: "" }} />
+      <NavbarLoggedIn />
       <div
         style={{
           height: "100vh",
@@ -127,23 +138,39 @@ const Dashboard = () => {
               >
                 <span style={{ fontWeight: "bold" }}>Email : </span>
                 {email} <br />
-                <span style={{ fontWeight: "bold" }}>Info : </span>
-                {email}
               </Typography>
 
               <Button
                 style={{ backgroundColor: "#1B8B6A" }}
-                onClick={togglePopup}
+                onClick={togglePopup2}
                 variant="contained"
                 sx={{ mt: 2, mb: 2 }}
               >
-                Edit
+                Edit name
+              </Button>
+              <Button
+                style={{ backgroundColor: "#1B8B6A" }}
+                onClick={togglePopup1}
+                variant="contained"
+                sx={{ m: 1 }}
+              >
+                Edit Email
+              </Button>
+
+              <Button
+                style={{ backgroundColor: "#122222" }}
+                onClick={togglePopup3}
+                variant="contained"
+              >
+                Change password
               </Button>
             </Box>
           </Box>
         </Container>
       </div>
-      {isOpen && <Popup content={<Editinfo handleClose={togglePopup} />} />}
+      {isOpen1 && <Popup content={<EditEmail handleClose={togglePopup1} />} />}
+      {isOpen2 && <Popup content={<EditName handleClose={togglePopup2} />} />}
+      {/* {isOpen3 && <Popup content={<Editinfo handleClose={togglePopup3} />} />} */}
     </div>
   );
 };
