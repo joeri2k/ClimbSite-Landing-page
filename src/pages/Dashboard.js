@@ -10,8 +10,16 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import Popup from "../components/Popup";
+import Editinfo from "../components/Editinfo";
 
 const Dashboard = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const url = "http://127.0.0.1:8000/api/auth/user-profile";
@@ -32,6 +40,28 @@ const Dashboard = () => {
     }
     handleSubmit();
   }, []);
+  // async function handleEdit(event) {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   const user_edited_info = {
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   };
+  //   console.log(user_login_info);
+  //   const url = "http://127.0.0.1:8000/api/auth/login";
+  //   try {
+  //     const response = await axios.post(url, user_login_info);
+  //     const data_received = await response.data;
+  //     console.log(data_received);
+  //     localStorage.setItem("token", data_received.access_token);
+  //     localStorage.setItem("name", data_received.user.name);
+  //     localStorage.setItem("email", data_received.user.email);
+  //     //setLoggedIn(true);
+  //     navigate("/dashboard");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   return (
     <div style={{ fontFamily: "Roboto", backgroundColor: "#122222" }}>
@@ -83,7 +113,7 @@ const Dashboard = () => {
             </Typography>
             <Box
               component="form"
-              //onSubmit={handleSubmit}
+              // onSubmit={handleEdit}
               noValidate
               sx={{ mt: 3 }}
             >
@@ -103,7 +133,7 @@ const Dashboard = () => {
 
               <Button
                 style={{ backgroundColor: "#1B8B6A" }}
-                type="submit"
+                onClick={togglePopup}
                 variant="contained"
                 sx={{ mt: 2, mb: 2 }}
               >
@@ -113,6 +143,7 @@ const Dashboard = () => {
           </Box>
         </Container>
       </div>
+      {isOpen && <Popup content={<Editinfo />} handleClose={togglePopup} />}
     </div>
   );
 };
