@@ -24,7 +24,7 @@ export default function SignUp() {
 
     if (!(data.get("email") && data.get("password") && data.get("name"))) {
       setError("empty");
-    } else if (!(data.get("password") == data.get("confirm-password"))) {
+    } else if (!(data.get("password") === data.get("confirm-password"))) {
       setError("confirm");
     } else {
       const user_signup_info = {
@@ -147,7 +147,7 @@ export default function SignUp() {
               Sign Up
             </Button>
           </Box>
-          {error == "empty" ? (
+          {error === "empty" ? (
             <div
               style={{
                 justifySelf: "center",
@@ -159,7 +159,7 @@ export default function SignUp() {
           ) : (
             <></>
           )}
-          {error == "confirm" ? (
+          {error === "confirm" ? (
             <div
               style={{
                 justifySelf: "center",
@@ -171,7 +171,7 @@ export default function SignUp() {
           ) : (
             <></>
           )}
-          {error == "already exist" ? (
+          {error === "already exist" ? (
             <div
               style={{
                 justifySelf: "center",

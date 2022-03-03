@@ -8,7 +8,7 @@ function Header() {
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     setChecked(true);
-  });
+  }, []);
   return (
     <div
       style={{

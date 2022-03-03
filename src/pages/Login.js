@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,11 +15,13 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   const [error, setError] = useState(null);
-
   const navigate = useNavigate();
+  const url = "http://127.0.0.1:8000/api/auth/login";
+
   async function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
     if (!(data.get("email") && data.get("password"))) {
       setError("empty");
     } else {
@@ -27,8 +29,7 @@ export default function Login() {
         email: data.get("email"),
         password: data.get("password"),
       };
-      console.log(user_login_info);
-      const url = "http://127.0.0.1:8000/api/auth/login";
+
       try {
         const response = await axios.post(url, user_login_info);
         const data_received = await response.data;
@@ -124,7 +125,7 @@ export default function Login() {
               </Link>
             </Typography>
           </Box>
-          {error == "empty" ? (
+          {error === "empty" ? (
             <div
               style={{
                 justifySelf: "center",
@@ -136,7 +137,7 @@ export default function Login() {
           ) : (
             <></>
           )}
-          {error == "wrong" ? (
+          {error === "wrong" ? (
             <div
               style={{
                 justifySelf: "center",
