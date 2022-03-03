@@ -81,7 +81,6 @@ const Dashboard = () => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              //alignItems: "center",
             }}
           >
             <Avatar
@@ -98,12 +97,7 @@ const Dashboard = () => {
             >
               {name}
             </Typography>
-            <Box
-              component="form"
-              // onSubmit={handleEdit}
-              noValidate
-              sx={{ mt: 3 }}
-            >
+            <Box component="form" noValidate sx={{ mt: 3 }}>
               <Typography
                 style={{
                   fontFamily: "Roboto",

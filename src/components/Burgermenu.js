@@ -47,13 +47,6 @@ export default function MenuListComposition() {
 
   return (
     <Stack direction="row" spacing={2}>
-      {/* <Paper>
-        <MenuList>
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>My account</MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </Paper> */}
       <div>
         <IconButton onClick={handleToggle}>
           <MenuIcon
