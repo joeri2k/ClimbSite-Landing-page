@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -8,7 +9,9 @@ import axios from "axios";
 import Container from "@mui/material/Container";
 
 function EditName({ handleClose }) {
+  const [message, setMessage] = useState(null);
   const token = localStorage.getItem("token");
+
   async function handleEdit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -24,8 +27,10 @@ function EditName({ handleClose }) {
       const data_received = await response.data;
       console.log(data_received);
       event.target.reset();
+      setMessage("success");
     } catch (error) {
       console.log(error);
+      setMessage("error");
     }
   }
 
@@ -78,6 +83,18 @@ function EditName({ handleClose }) {
               Edit
             </Button>
           </Box>
+          {message === "success" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#1B8B6A",
+              }}
+            >
+              You've edited your name.
+            </div>
+          ) : (
+            <></>
+          )}
         </Box>
       </Container>
     </div>
