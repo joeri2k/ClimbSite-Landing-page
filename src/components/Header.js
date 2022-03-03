@@ -2,6 +2,7 @@ import { IconButton } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
+import { Link as Scroll } from "react-scroll";
 
 function Header() {
   const [checked, setChecked] = useState(false);
@@ -49,20 +50,22 @@ function Header() {
             flexDirection: "column",
           }}
         >
-          <IconButton
-            style={{
-              marginTop: "100px",
-            }}
-          >
-            <ExpandMoreIcon
+          <Scroll to="down" smooth={true}>
+            <IconButton
               style={{
-                backgroundColor: "#1B8B6A",
-                borderRadius: "100px",
-                fontSize: "50px",
-                color: "white",
+                marginTop: "100px",
               }}
-            />
-          </IconButton>
+            >
+              <ExpandMoreIcon
+                style={{
+                  backgroundColor: "#1B8B6A",
+                  borderRadius: "100px",
+                  fontSize: "50px",
+                  color: "white",
+                }}
+              />
+            </IconButton>
+          </Scroll>
         </div>
       </Collapse>
     </div>

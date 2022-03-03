@@ -25,7 +25,7 @@ const Landing = () => {
           <Header />
         </div>
       </div>
-      <div style={{ backgroundColor: "#122222" }}>
+      <div id="down" style={{ backgroundColor: "#122222" }}>
         <SliderImage />
       </div>
       <div
