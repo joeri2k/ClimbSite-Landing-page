@@ -13,7 +13,7 @@ import MenuListLogged from "./BurgerLogged";
 
 function NavbarLoggedIn() {
   const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("xs"));
+  const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   async function handleSubmit() {
