@@ -117,7 +117,7 @@ export default function ChangePass({ handleClose }) {
                 color: "#1B8B6A",
               }}
             >
-              You've edited your name.
+              You've edited your password.
             </div>
           ) : (
             <></>
