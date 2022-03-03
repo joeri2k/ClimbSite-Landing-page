@@ -15,19 +15,16 @@ import ChangePass from "../components/ChangePass";
 
 const Dashboard = () => {
   const [isOpen1, setIsOpen1] = useState(false);
-
   const togglePopup1 = () => {
     setIsOpen1(!isOpen1);
   };
 
   const [isOpen2, setIsOpen2] = useState(false);
-
   const togglePopup2 = () => {
     setIsOpen2(!isOpen2);
   };
 
   const [isOpen3, setIsOpen3] = useState(false);
-
   const togglePopup3 = () => {
     setIsOpen3(!isOpen3);
   };
