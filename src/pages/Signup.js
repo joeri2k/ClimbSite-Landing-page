@@ -166,7 +166,7 @@ export default function SignUp() {
                 color: "#A05B5B",
               }}
             >
-              Your password and confirmation password do not match.
+              Your password and its confirmation do not match.
             </div>
           ) : (
             <></>
