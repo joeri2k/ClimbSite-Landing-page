@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -7,6 +8,9 @@ import Container from "@mui/material/Container";
 import axios from "axios";
 
 export default function ContactUs() {
+  const [message, setMessage] = useState(null);
+  const url = "http://127.0.0.1:8000/api/message";
+
   async function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -16,14 +20,15 @@ export default function ContactUs() {
       message: data.get("message"),
     };
 
-    const url = "http://127.0.0.1:8000/api/message";
     try {
       const response = await axios.post(url, message_data);
       const data_received = await response.data;
       console.log(data_received);
       event.target.reset();
+      setMessage("success");
     } catch (error) {
       console.log(error);
+      setMessage("error");
     }
   }
   return (
@@ -105,6 +110,30 @@ export default function ContactUs() {
               Send
             </Button>
           </Box>
+          {message === "success" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#1B8B6A",
+              }}
+            >
+              You've sent a Message.
+            </div>
+          ) : (
+            <></>
+          )}
+          {message === "error" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              One of the required field is missing.
+            </div>
+          ) : (
+            <></>
+          )}
         </Box>
       </Container>
     </div>

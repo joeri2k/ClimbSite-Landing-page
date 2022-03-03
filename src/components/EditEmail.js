@@ -100,7 +100,7 @@ export default function EditEmail({ handleClose }) {
                 color: "#A05B5B",
               }}
             >
-              Enter an email to edit
+              Enter an email to edit.
             </div>
           ) : (
             <></>
