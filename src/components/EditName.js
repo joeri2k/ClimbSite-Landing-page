@@ -102,7 +102,7 @@ function EditName({ handleClose }) {
                 color: "#A05B5B",
               }}
             >
-              Enter a name to edit
+              Enter a name to edit.
             </div>
           ) : (
             <></>
