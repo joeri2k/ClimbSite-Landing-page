@@ -21,40 +21,48 @@ export default function SignUp() {
   async function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const user_signup_info = {
-      name: data.get("name"),
-      email: data.get("email"),
-      password: data.get("password"),
-      password_confirmation: data.get("confirm-password"),
-    };
-    console.log(user_signup_info);
-    const url = "http://127.0.0.1:8000/api/auth/register";
-    try {
-      const response = await axios.post(url, user_signup_info);
-      const data_received = await response.data;
-      console.log(data_received);
-      navigate("/login");
-    } catch (error) {
-      console.log(error);
+    if (!(data.get("email") && data.get("password") && data.get("name"))) {
+      setError("empty");
+    } else if (!(data.get("password") == data.get("confirm-password"))) {
+      setError("confirm");
+    } else {
+      const user_signup_info = {
+        name: data.get("name"),
+        email: data.get("email"),
+        password: data.get("password"),
+        password_confirmation: data.get("confirm-password"),
+      };
+      console.log(user_signup_info);
+      const url = "http://127.0.0.1:8000/api/auth/register";
+      try {
+        const response = await axios.post(url, user_signup_info);
+        const data_received = await response.data;
+        console.log(data_received);
+        navigate("/login");
+      } catch (error) {
+        console.log(error);
+        setError("already exist");
+      }
     }
   }
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div>
       <Navbar />
       <Container
         component="main"
         maxWidth="xs"
         style={{
-          backgroundColor: "#2F3F4A",
-          borderRadius: "15px",
-          color: "white",
+          height: "90vh",
         }}
       >
         <CssBaseline />
         <Box
-          style={{ padding: "20px" }}
+          style={{ padding: "30px" }}
           sx={{
+            backgroundColor: "#2F3F4A",
+            color: "white",
+            borderRadius: "15px",
             marginTop: 8,
             display: "flex",
             flexDirection: "column",
@@ -139,6 +147,42 @@ export default function SignUp() {
               Sign Up
             </Button>
           </Box>
+          {error == "empty" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              One of the required field is empty
+            </div>
+          ) : (
+            <></>
+          )}
+          {error == "confirm" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              Your password and confirmation password do not match.
+            </div>
+          ) : (
+            <></>
+          )}
+          {error == "already exist" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              This user already exist.
+            </div>
+          ) : (
+            <></>
+          )}
         </Box>
       </Container>
     </div>
