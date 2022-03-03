@@ -12,18 +12,8 @@ const Landing = () => {
     <div style={{ height: "100vh" }}>
       <Navbar />
       <CssBaseline />
-      <div
-        style={{
-          minHeight: "100vh",
-          backgroundImage: `url(${bg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      >
-        <div style={{ backgroundColor: "rgb(0,0,0,0.6)" }}>
-          <Header />
-        </div>
+      <div>
+        <Header />
       </div>
       <div id="down" style={{ backgroundColor: "#122222" }}>
         <SliderImage />
