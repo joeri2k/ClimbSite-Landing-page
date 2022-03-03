@@ -47,26 +47,29 @@ export default function SignUp() {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        height: "100vh",
+      }}
+    >
       <Navbar />
       <Container
+        style={{
+          backgroundColor: "#2F3F4A",
+          color: "white",
+          borderRadius: "15px",
+        }}
         component="main"
         maxWidth="xs"
-        style={{
-          height: "90vh",
-        }}
       >
         <CssBaseline />
         <Box
-          style={{ padding: "30px" }}
           sx={{
-            backgroundColor: "#2F3F4A",
-            color: "white",
-            borderRadius: "15px",
-            marginTop: 8,
+            marginTop: 2,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            padding: "15px",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "#1B8B6A" }}>
