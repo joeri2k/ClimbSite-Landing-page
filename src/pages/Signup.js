@@ -24,6 +24,8 @@ export default function SignUp() {
 
     if (!(data.get("email") && data.get("password") && data.get("name"))) {
       setError("empty");
+    } else if (data.get("password").length < 7) {
+      setError("weak");
     } else if (!(data.get("password") === data.get("confirm-password"))) {
       setError("confirm");
     } else {
@@ -182,6 +184,18 @@ export default function SignUp() {
               }}
             >
               This user already exist.
+            </div>
+          ) : (
+            <></>
+          )}
+          {error === "weak" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              Password is weak.
             </div>
           ) : (
             <></>
