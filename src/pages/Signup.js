@@ -1,10 +1,9 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -16,11 +15,13 @@ import Navbar from "../components/Navbar";
 
 export default function SignUp() {
   const [error, setError] = useState(null);
-
   const navigate = useNavigate();
+  const url = "http://127.0.0.1:8000/api/auth/register";
+
   async function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
     if (!(data.get("email") && data.get("password") && data.get("name"))) {
       setError("empty");
     } else if (!(data.get("password") == data.get("confirm-password"))) {
@@ -32,8 +33,7 @@ export default function SignUp() {
         password: data.get("password"),
         password_confirmation: data.get("confirm-password"),
       };
-      console.log(user_signup_info);
-      const url = "http://127.0.0.1:8000/api/auth/register";
+
       try {
         const response = await axios.post(url, user_signup_info);
         const data_received = await response.data;
