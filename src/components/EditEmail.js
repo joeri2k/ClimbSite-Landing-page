@@ -1,14 +1,16 @@
 import * as React from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import axios from "axios";
-
 import Container from "@mui/material/Container";
 
 export default function EditEmail({ handleClose }) {
+  const [message, setMessage] = useState(null);
   const token = localStorage.getItem("token");
+
   async function handleEdit(event) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -24,8 +26,10 @@ export default function EditEmail({ handleClose }) {
       const data_received = await response.data;
       console.log(data_received);
       event.target.reset();
+      setMessage("success");
     } catch (error) {
       console.log(error);
+      setMessage("error");
     }
   }
   return (
@@ -77,6 +81,30 @@ export default function EditEmail({ handleClose }) {
               Edit
             </Button>
           </Box>
+          {message === "success" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#1B8B6A",
+              }}
+            >
+              You've edited your email.
+            </div>
+          ) : (
+            <></>
+          )}
+          {message === "error" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              Enter an email to edit
+            </div>
+          ) : (
+            <></>
+          )}
         </Box>
       </Container>
     </div>

@@ -95,6 +95,18 @@ function EditName({ handleClose }) {
           ) : (
             <></>
           )}
+          {message === "error" ? (
+            <div
+              style={{
+                justifySelf: "center",
+                color: "#A05B5B",
+              }}
+            >
+              Enter a name to edit
+            </div>
+          ) : (
+            <></>
+          )}
         </Box>
       </Container>
     </div>
